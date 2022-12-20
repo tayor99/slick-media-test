@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import Header from "./components/Header";
 import MovieBody from "./components/MovieBody";
 import Searchbar from "./components/Searchbar";
