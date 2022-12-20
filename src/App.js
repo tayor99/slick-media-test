@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import MovieBody from "./components/MovieBody";
+import Searchbar from "./components/Searchbar";
 
 function App() {
+  const [errMsg, setErrMsg] = useState("");
+  const [movieData, setMovieData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Searchbar
+        setErrMsg={setErrMsg}
+        setMovieData={setMovieData}
+        setIsLoading={setIsLoading}
+      />
+      <MovieBody movieData={movieData} errMsg={errMsg} isLoading={isLoading} />
     </div>
   );
 }
